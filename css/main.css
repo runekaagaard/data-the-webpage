@@ -1,0 +1,22 @@
+body {
+  background: #222222;
+  margin: 0;
+  padding: 0;
+  overflow: auto; }
+
+#console {
+  font-size: 14px;
+  font-family: Monaco, monospace, fixed; }
+  #console div.jquery-console-inner {
+    padding: 0.5em; }
+  #console div.jquery-console-prompt-box {
+    color: white; }
+  #console div.jquery-console-focus span.jquery-console-cursor {
+    background: #fefefe;
+    color: #333333;
+    font-weight: bold; }
+  #console div.jquery-console-message-value {
+    color: #5ff63f;
+    padding: 0.1em; }
+  #console span.jquery-console-prompt-label {
+    font-weight: bold; }

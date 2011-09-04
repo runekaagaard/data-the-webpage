@@ -1,156 +1,19 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
-          "http://www.w3.org/TR/html4/strict.dtd">
+<!DOCTYPE html>
 <html>
-  <head>
-    <title>JQuery Console Demo</title>
-    <meta name="Content-Type" content="text/html; charset=UTF-8">
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
-    <script type="text/javascript" src="js/jquery.console.js"></script>
-    <!-- Everything beyond this point is user-customized -->
-    <script type="text/javascript">
-      $(document).ready(function(){
-         /* First console */
-         var console1 = $('<div id="console">');
-         $('body').append(console1);
-         var controller1 = console1.console({
-           promptLabel: 'DATA> ',
-           commandValidate:function(line){
-             if (line == "") return false;
-             else return true;
-           },
-           commandHandle:function(line){
-               return [{msg:"=> [12,42]",
-                        className:"jquery-console-message-value"},
-                       //{msg:":: [a]",
-                        //className:"jquery-console-message-type"}
-                       ]
-           },
-           autofocus:true,
-           animateScroll:true,
-           promptHistory:true,
-         });
-    });
-    </script>
-    <style> 
-body{
-	background:#222;
-    margin: 0;
-    padding: 0;
-    overflow: auto;
-}
-#console {
-	font-size: 14px;
-	font-family: Monaco, monospace, fixed;
-}
-#console div.jquery-console-inner{
-	
-	padding:0.5em;
-}
-#console div.jquery-console-prompt-box{
-	color:#fff; 
-}
-#console div.jquery-console-focus span.jquery-console-cursor {  
-	background:#fefefe; 
-	color:#333; 
-	font-weight:bold
-}
-#console div.jquery-console-message-error{
-	color:#ea2520; 
-	font-weight:bold;
-	padding:0.1em;
-}
-#console div.jquery-console-message-value,
-#console .reply
-{
-	color:#5ff63f; 
-	padding:0.1em;
-}
-#console .error{
-	color: #ff2848;
-}
-#console div.jquery-console-message-type{
-	color:#52666f; 
-	padding:0.1em;
-}
-#console span.jquery-console-prompt-label {
-	font-weight:bold;
-}
-#console .browser,
-#console .announcement
-{
-	color: #fff473;
-}
-#console .console{
-	color: #258df5;
-}
- 
-#buttons{
-    position: absolute;
-    top: 5px;
-    right: 5px;
-}
- 
-#embed-panel,
-#marklet-panel
-{
-    font-family: Monaco, monospace, fixed;
-    font-size: 75%;
-    position: absolute;
-    top: 30px;
-    right: 5px;
-    display: none;
-    max-width: 300px;
-    color: #000;
-    float: right;
-    clear: right;
-    background-color: #ddd;
-    padding: 5px;
-    margin-right: 5px;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-}
-#embed-panel.active,
-#marklet-panel.active
-{
-    display: block;
-}
- 
-#embed-textarea,
-#marklet-textarea
-{
-    min-width: 290px;
-    font-family: Monaco, monospace, fixed;
-    font-size: 100%;
-}
- 
-button {
-    border-radius: 2px;
-    color: #aaa;
-    background-color: #444;
-    border: 1px solid #aaa;
-    cursor: pointer;
-    margin: 5px;
-}
- 
-.button:hover {
-}
-.button:active {
-}
- 
-@media screen and (max-width: 600px){
-	.jquery-console-typer{
-		font-size: 200%;
-	}
-	
-}
- 
-</style> 
-  </head>
-  <body>
-    <noscript>
-      <p>
-        <strong>Please enable JavaScript or upgrade your browser.</strong>
-      </p>
-    </noscript>
+    <head>
+        <title>Data The Band</title>
+        <meta name="Content-Type" content="text/html; charset=UTF-8">
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+        <script type="text/javascript" src="js/jquery.console.js"></script>
+        <script type="text/javascript" src="js/main.js"></script>
+        
+        <link rel="stylesheet" href="css/main.css" type="text/css" />
+    </head>
+    
+    <body>
+        <noscript><p><strong>
+            Please enable JavaScript or upgrade your browser.
+        </strong></p></noscript>
+        <div id="console"></div>
   </body>
 </html>
