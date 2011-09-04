@@ -20,3 +20,6 @@ body {
     padding: 0.1em; }
   #console span.jquery-console-prompt-label {
     font-weight: bold; }
+
+article {
+  display: none; }

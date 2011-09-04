@@ -1,15 +1,22 @@
 $ ->
     $("#console").console 
         promptLabel: "YES MASTER? "
-        commandValidate: (line) -> line != ""
+        commandValidate: (line) -> line isnt ""
         autofocus: true
         animateScroll: true
         promptHistory: true
     
         commandHandle: (line) ->
-            if line == "whois"
-                [ 
-                    msg: "Mads A, Rune K og Jeppe T"
+            el = $("article section[cmd=#{ line }] .text")
+            
+            if line is "help"
+                [
+                    msg: "HELP"
+                    className: "jquery-console-message-value"
+                ]
+            else if el.length
+                [
+                    msg: $.trim(el.html())
                     className: "jquery-console-message-value"
                 ]
             else

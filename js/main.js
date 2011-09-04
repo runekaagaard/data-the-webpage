@@ -1,6 +1,5 @@
 (function() {
-  var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
-  $(__bind(function() {
+  $(function() {
     return $("#console").console({
       promptLabel: "YES MASTER? ",
       commandValidate: function(line) {
@@ -10,10 +9,19 @@
       animateScroll: true,
       promptHistory: true,
       commandHandle: function(line) {
-        if (line === "whois") {
+        var el;
+        el = $("article section[cmd=" + line + "] .text");
+        if (line === "help") {
           return [
             {
-              msg: "Mads A, Rune K og Jeppe T",
+              msg: "HELP",
+              className: "jquery-console-message-value"
+            }
+          ];
+        } else if (el.length) {
+          return [
+            {
+              msg: $.trim(el.html()),
               className: "jquery-console-message-value"
             }
           ];
@@ -27,5 +35,5 @@
         }
       }
     });
-  }, this));
+  });
 }).call(this);
