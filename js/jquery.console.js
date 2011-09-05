@@ -509,9 +509,14 @@
         function message(msg,className) {
             var mesg = $('<div class="jquery-console-message"></div>');
             if (className) mesg.addClass(className);
-            mesg.filledText(msg).hide();
-            inner.append(mesg);
-            mesg.show();
+            if (typeof msg.allow_html !== 'undefined' && msg.allow_html) {
+              inner.append(String(msg));
+            } else {
+              mesg.filledText(msg).hide();
+              inner.append(mesg);
+              mesg.show();
+            }
+            
         };
 
         ////////////////////////////////////////////////////////////////////////
