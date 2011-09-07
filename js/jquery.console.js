@@ -252,8 +252,11 @@
         ////////////////////////////////////////////////////////////////////////
         // Handle losing focus
         typer.blur(function(){
-            inner.removeClass('jquery-console-focus');
-            inner.addClass('jquery-console-nofocus');
+            inner.addClass('jquery-console-focus');
+            inner.removeClass('jquery-console-nofocus');
+            typer.focus();
+            scrollToBottom();
+            return false;
         });
         
         ////////////////////////////////////////////////////////////////////////
@@ -432,7 +435,8 @@
 
         // Scroll to the bottom of the view
         function scrollToBottom() {
-            inner.attr({ scrollTop: inner.attr("scrollHeight") });;
+            inner.attr({ scrollTop: inner.attr("scrollHeight") });
+            $.scrollTo('max');
         };
 
 	function cancelExecution() {
@@ -510,13 +514,12 @@
             var mesg = $('<div class="jquery-console-message"></div>');
             if (className) mesg.addClass(className);
             if (typeof msg.allow_html !== 'undefined' && msg.allow_html) {
-              inner.append(String(msg));
+              inner.append('<div class="jquery-console-message">' + String(msg) + '</div>');
             } else {
               mesg.filledText(msg).hide();
               inner.append(mesg);
               mesg.show();
             }
-            
         };
 
         ////////////////////////////////////////////////////////////////////////
@@ -665,7 +668,7 @@
     // Simple utility for printing messages
     $.fn.filledText = function(txt){
         $(this).text(txt);
-        $(this).html($(this).html().replace(/\n/g,'<br/>'));
+        $(this).html($(this).html().replace(/\n/g,'<br/>').replace(/%/g,'&nbsp;'));
         return this;
     };
 })(jQuery);

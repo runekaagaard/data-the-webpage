@@ -1,27 +1,27 @@
-body
-  background: #222
-  margin: 0
-  padding: 0
-  overflow: auto
+$green: #5ff63f
+$orange: orange
 
-#console
+html
+  background: #222
   font-size: 14px
   font-family: Monaco, monospace, fixed
-  
+  line-height: 130%
+  padding: 8px
+  color: $green
+#console
   div
-    &.jquery-console-inner
-      padding: 0.5em
     &.jquery-console-prompt-box
-      color: #fff
+      color: $orange
     &.jquery-console-focus span.jquery-console-cursor
-      background: #fefefe
-      color: #333
-      font-weight: bold
-    &.jquery-console-message-value
-      color: #5ff63f
-      padding: 0.1em
-  span.jquery-console-prompt-label
-    font-weight: bold
-    
+      background: $orange
+    &.jquery-console-focus span.blink
+      background: transparent
+    &.jquery-console-message
+      width: 600px
+      margin-bottom: 20px
+      
+  span.blink
+    background: red
+      
 article
   display: none

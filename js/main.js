@@ -1,5 +1,6 @@
 (function() {
   var display_help, mark_safe;
+  var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
   mark_safe = function(str) {
     var str2;
     str2 = new String(str);
@@ -9,9 +10,9 @@
   display_help = function() {
     var assemble_line, el;
     assemble_line = function(el) {
-      return $(el).attr('cmd') + ' - ' + $.trim($(el).find('.help').html());
+      return '%%%%' + $(el).attr('cmd') + ' - ' + $.trim($(el).find('.help').html());
     };
-    return "The available commands are: \n\n" + ((function() {
+    return "Type commands to learn more about DATA. For instance if you type \"whois\"\n(without the quotes) and press the enter key, you can read about the humans\nbehind DATA.\n\nThe available commands are:\n\n" + ((function() {
       var _i, _len, _ref, _results;
       _ref = $("article section");
       _results = [];
@@ -23,17 +24,17 @@
     })()).join("\n");
   };
   $(function() {
-    return $("#console").console({
+    var blink_cursor, console_el;
+    console_el = $("#console").console({
       promptLabel: "YES MASTER? ",
-      commandValidate: function(line) {
-        return line !== "";
-      },
+      commandValidate: true,
       autofocus: true,
       animateScroll: true,
       promptHistory: true,
+      welcomeMessage: "Welcome to DATA::The Webpage. Ask me what to do and I will tell you\neverything!\n\nType \"help\" (without the quotes) and hit enter to get help or be a\nsissy and use the menu above :)",
       commandHandle: function(line) {
         var el, output;
-        el = $("article section[cmd=" + line + "] .text");
+        el = $("article section[cmd=\"" + line + "\"] .text");
         if (line === "help") {
           return [
             {
@@ -41,6 +42,8 @@
               className: "jquery-console-message-value"
             }
           ];
+        } else if (line === "reset") {
+          return console_el.reset();
         } else if (el.length) {
           output = $.trim(el.html());
           if ($(el).hasClass('safe')) {
@@ -62,5 +65,10 @@
         }
       }
     });
+    blink_cursor = __bind(function() {
+      console.log("cursor");
+      return $('#console div.jquery-console-focus span.jquery-console-cursor').toggleClass("blink");
+    }, this);
+    return setInterval(blink_cursor, 1000);
   });
 }).call(this);

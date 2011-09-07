@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -7,7 +8,10 @@
       src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js">
     </script>
     <script type="text/javascript" src="js/jquery.console.js"></script>
+    <script type="text/javascript" src="js/jquery.scrollTo-1.4.2-min.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
+    
+    <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.9.0/build/reset/reset-min.css">
     <link rel="stylesheet" href="css/main.css" type="text/css" />
   </head>
   
@@ -17,13 +21,43 @@
     </strong></p></noscript>
     <div id="console"></div>
     <article>
-      <section cmd="whois">
+      <section cmd="about">
         <div class="help">
-          See DATA's awesome band members.
+          Whats this DATA thingy all about?
         </div>
         <div class="text">
-          DATA is a band consisting of Jeppe Tuxen, Mads Andersen,
-          Jon Meinild, Alice Nielsen and Rune Kaagaard and Turspin Djurhus.
+          DATA is a copenhagen based collaboration of 5 musicians, 1 VJ and 2
+          computer programmers who is trying to expand the limits of a human /
+          technological interface in a live concert. 
+          
+          We are building our own controllers, creating our own computer 
+          software and exploring new possibilites of playing music. 
+          
+          We are not using any prerecorded material and all sounds / video 
+          pieces are triggered live.
+        </div>
+      </section>
+      
+      <section cmd="whois">
+        <div class="help">
+          DATA's awesome band members.
+        </div>
+        <div class="text">
+          Jeppe Tuxen: Keys, Electronics
+          Mads Andersen: Electric drums
+          Rune Kaagaard: Keys, Joysticks
+          Alice Carreri: Vocal, Vocoder, Autotune
+          Jon Meinild: Samples, Wiimotes
+          Turspin Djurhus: VJ and light
+        </div>
+      </section>
+      
+      <section cmd="images">
+        <div class="help">
+          See pretty photos of DATA stuff.
+        </div>
+        <div class="text safe">
+          <embed type="application/x-shockwave-flash" src="https://picasaweb.google.com/s/c/bin/slideshow.swf" width="600" height="400" flashvars="host=picasaweb.google.com&hl=en_US&feat=flashalbum&RGB=0x000000&feed=https%3A%2F%2Fpicasaweb.google.com%2Fdata%2Ffeed%2Fapi%2Fuser%2F102536928513966502929%2Falbumid%2F5461931497814011713%3Falt%3Drss%26kind%3Dphoto%26hl%3Den_US" pluginspage="http://www.macromedia.com/go/getflashplayer"></embed>
         </div>
       </section>
       
@@ -32,7 +66,36 @@
           Divulge in videos of DATA in live performance.
         </div>
         <div class="text safe">
-          <iframe width="420" height="345" src="http://www.youtube.com/embed/g99GZ0Tu91I" frameborder="0"     allowfullscreen></iframe>
+          Our music video "The Champ" and the trailer for and excerpts from our 
+          live concert at Planeten. Use the 
+          <img src="images/playlist-toggle.png" /> button to switch between 
+          the different videos.
+          <object width="560" height="345">
+          <param name="movie" value="http://www.youtube.com/p/8D698693296FE051?fs=1"</param>
+          <param name="allowFullScreen" value="true"></param>
+          <param name="allowScriptAccess" value="always"></param>
+          <embed src="http://www.youtube.com/p/8D698693296FE051?fs=1"
+            type="application/x-shockwave-flash"
+            allowfullscreen="true"
+            allowscriptaccess="always"
+            width="560" height="345">
+          </embed>
+          </object>
+        </div>
+      </section>
+      
+      <section cmd="why">
+        <div class="help">
+          Why are we going through all this technical hassle?
+        </div>
+        <div class="text">
+          Because we can!
+        </div>
+      </section>
+      
+      <section cmd="reset">
+        <div class="help">
+          Resets the screen.
         </div>
       </section>
       
