@@ -40,6 +40,18 @@ $ ->
         ]
       else if line is "reset"
         console_el.reset()
+      else if line is "togglemenu"
+        $('nav').toggleClass("hidden")
+        if $('nav').hasClass("hidden")
+          message = "Menu turned off. Good for you!"
+          $('html').css('padding-top', 0)
+        else
+          message = "Menu turned back on. ZZZ."
+          $('html').css('padding-top', '40px')
+        [
+            msg: message
+            className: "jquery-console-message-value"
+        ]
       else if el.length
         output = $.trim(el.html())
         if $(el).hasClass('safe')
@@ -59,5 +71,5 @@ $ ->
   setInterval(blink_cursor, 1000)
   
   for el in $("article section")
-    $('nav ul ').append("<li>" + $(el).attr('cmd') + "</li>")
-    console.log(el)
+    if not $(el).hasClass("command-only")
+      $('nav ul ').append("<li>" + $(el).attr('cmd') + "</li>")

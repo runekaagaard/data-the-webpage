@@ -40,7 +40,7 @@ nav {
       margin-right: 16px;
       float: left; }
 
-article {
+article, .hidden {
   display: none; }
 
 embed, object {

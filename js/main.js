@@ -33,7 +33,7 @@
       promptHistory: true,
       welcomeMessage: "Welcome to DATA::The Webpage. Ask me what to do and I will tell you\neverything!\n\nType \"help\" (without the quotes) and hit enter to get help or be a\nsissy and use the menu above :)",
       commandHandle: function(line) {
-        var el, output;
+        var el, message, output;
         el = $("article section[cmd=\"" + line + "\"] .text");
         if (line === "help") {
           return [
@@ -44,6 +44,21 @@
           ];
         } else if (line === "reset") {
           return console_el.reset();
+        } else if (line === "togglemenu") {
+          $('nav').toggleClass("hidden");
+          if ($('nav').hasClass("hidden")) {
+            message = "Menu turned off. Good for you!";
+            $('html').css('padding-top', 0);
+          } else {
+            message = "Menu turned back on. ZZZ.";
+            $('html').css('padding-top', '40px');
+          }
+          return [
+            {
+              msg: message,
+              className: "jquery-console-message-value"
+            }
+          ];
         } else if (el.length) {
           output = $.trim(el.html());
           if ($(el).hasClass('safe')) {
@@ -73,8 +88,7 @@
     _results = [];
     for (_i = 0, _len = _ref.length; _i < _len; _i++) {
       el = _ref[_i];
-      $('nav ul ').append("<li>" + $(el).attr('cmd') + "</li>");
-      _results.push(console.log(el));
+      _results.push(!$(el).hasClass("command-only") ? $('nav ul ').append("<li>" + $(el).attr('cmd') + "</li>") : void 0);
     }
     return _results;
   });
