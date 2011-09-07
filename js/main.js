@@ -24,7 +24,7 @@
     })()).join("\n");
   };
   $(function() {
-    var blink_cursor, console_el;
+    var blink_cursor, console_el, el, _i, _len, _ref, _results;
     console_el = $("#console").console({
       promptLabel: "YES MASTER? ",
       commandValidate: true,
@@ -66,9 +66,16 @@
       }
     });
     blink_cursor = __bind(function() {
-      console.log("cursor");
       return $('#console div.jquery-console-focus span.jquery-console-cursor').toggleClass("blink");
     }, this);
-    return setInterval(blink_cursor, 1000);
+    setInterval(blink_cursor, 1000);
+    _ref = $("article section");
+    _results = [];
+    for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+      el = _ref[_i];
+      $('nav ul ').append("<li>" + $(el).attr('cmd') + "</li>");
+      _results.push(console.log(el));
+    }
+    return _results;
   });
 }).call(this);

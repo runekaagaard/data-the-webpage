@@ -55,6 +55,9 @@ $ ->
         ]
   
   blink_cursor = =>
-    console.log("cursor")
     $('#console div.jquery-console-focus span.jquery-console-cursor').toggleClass("blink")
   setInterval(blink_cursor, 1000)
+  
+  for el in $("article section")
+    $('nav ul ').append("<li>" + $(el).attr('cmd') + "</li>")
+    console.log(el)

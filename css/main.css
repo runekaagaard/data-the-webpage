@@ -3,20 +3,39 @@ html {
   font-size: 14px;
   font-family: Monaco, monospace, fixed;
   line-height: 130%;
-  padding: 8px;
+  padding-top: 40px;
   color: #5ff63f; }
 
-#console div.jquery-console-prompt-box {
-  color: orange; }
-#console div.jquery-console-focus span.jquery-console-cursor {
-  background: orange; }
-#console div.jquery-console-focus span.blink {
-  background: transparent; }
-#console div.jquery-console-message {
-  width: 600px;
-  margin-bottom: 20px; }
-#console span.blink {
-  background: red; }
+#console {
+  padding: 8px; }
+  #console div.jquery-console-prompt-box {
+    color: orange; }
+  #console div.jquery-console-focus span.jquery-console-cursor {
+    background: orange; }
+  #console div.jquery-console-focus span.blink {
+    background: transparent; }
+  #console div.jquery-console-message {
+    width: 600px;
+    margin-bottom: 20px; }
+  #console span.blink {
+    background: red; }
+
+nav {
+  color: #7cd934;
+  background: #3465a4;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 20px; }
+  nav ul {
+    margin-left: 8px;
+    margin-top: 1px; }
+    nav ul li {
+      cursor: pointer;
+      text-decoration: underline;
+      margin-right: 16px;
+      float: left; }
 
 article {
   display: none; }
