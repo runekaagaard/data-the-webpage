@@ -1,5 +1,5 @@
 html {
-  background: #222222;
+  background-color: #222222;
   font-size: 14px;
   font-family: Monaco, monospace, fixed;
   line-height: 130%;
@@ -11,9 +11,9 @@ html {
   #console div.jquery-console-prompt-box {
     color: orange; }
   #console div.jquery-console-focus span.jquery-console-cursor {
-    background: orange; }
+    background-color: orange; }
   #console div.jquery-console-focus span.blink {
-    background: transparent; }
+    background-color: transparent; }
   #console div.jquery-console-message {
     width: 600px;
     margin-bottom: 20px; }
@@ -21,17 +21,20 @@ html {
     background: red; }
 
 nav {
-  color: #7cd934;
-  background: #3465a4;
+  color: #e4ffff;
+  background-color: #333333;
   position: fixed;
   top: 0px;
   left: 0px;
   width: 100%;
-  height: 20px; }
+  height: 20px;
+  z-index: 1; }
   nav ul {
+    z-index: 1;
     margin-left: 8px;
     margin-top: 1px; }
     nav ul li {
+      z-index: 1;
       cursor: pointer;
       text-decoration: underline;
       margin-right: 16px;
@@ -39,3 +42,6 @@ nav {
 
 article {
   display: none; }
+
+embed, object {
+  z-index: 0; }

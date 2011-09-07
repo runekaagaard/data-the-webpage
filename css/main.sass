@@ -1,8 +1,11 @@
-$green: #5ff63f
-$orange: orange
+$orange:    orange
+$green:     #5ff63f
+$white: #E4FFFF
+$darkgrey: #222
+$lightgrey: #333
 
 html
-  background: #222
+  background-color: $darkgrey
   font-size: 14px
   font-family: Monaco, monospace, fixed
   line-height: 130%
@@ -15,9 +18,9 @@ html
     &.jquery-console-prompt-box
       color: $orange
     &.jquery-console-focus span.jquery-console-cursor
-      background: $orange
+      background-color: $orange
     &.jquery-console-focus span.blink
-      background: transparent
+      background-color: transparent
     &.jquery-console-message
       width: 600px
       margin-bottom: 20px
@@ -26,17 +29,20 @@ html
     background: red
 
 nav
-  color: #7CD934
-  background: #3465A4
+  color: $white
+  background-color: $lightgrey
   position: fixed
   top: 0px
   left: 0px
   width: 100%
   height: 20px
+  z-index: 1
   ul
+    z-index: 1
     margin-left: 8px
     margin-top: 1px
     li
+      z-index: 1
       cursor: pointer
       text-decoration: underline
       margin-right: 16px
@@ -44,3 +50,6 @@ nav
   
 article
   display: none
+  
+embed, object
+  z-index: 0
