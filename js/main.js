@@ -24,7 +24,7 @@
     })()).join("\n");
   };
   $(function() {
-    var blink_cursor, console_el, el, _i, _len, _ref, _results;
+    var blink_cursor, console_el, el, _i, _len, _ref;
     console_el = $("#console").console({
       promptLabel: "YES MASTER? ",
       commandValidate: true,
@@ -44,7 +44,7 @@
           ];
         } else if (line === "reset") {
           return console_el.reset();
-        } else if (line === "togglemenu") {
+        } else if (line === "toggle-menu") {
           $('nav').toggleClass("hidden");
           if ($('nav').hasClass("hidden")) {
             message = "Menu turned off. Good for you!";
@@ -85,11 +85,26 @@
     }, this);
     setInterval(blink_cursor, 1000);
     _ref = $("article section");
-    _results = [];
     for (_i = 0, _len = _ref.length; _i < _len; _i++) {
       el = _ref[_i];
-      _results.push(!$(el).hasClass("command-only") ? $('nav ul ').append("<li>" + $(el).attr('cmd') + "</li>") : void 0);
+      if (!$(el).hasClass("command-only")) {
+        $('nav ul ').append("<li>" + $(el).attr('cmd') + "</li>");
+      }
     }
-    return _results;
+    return $('nav ul li').click(function() {
+      var c, cmd, _j, _len2, _ref2;
+      cmd = $(this).text();
+      console_el.disableInput();
+      console_el.moveToEnd();
+      while (console_el.promptText().length !== 0) {
+        console_el.backDelete();
+      }
+      _ref2 = cmd.split("");
+      for (_j = 0, _len2 = _ref2.length; _j < _len2; _j++) {
+        c = _ref2[_j];
+        console_el.typer.consoleInsert(c);
+      }
+      return console_el.commandTrigger();
+    });
   });
 }).call(this);

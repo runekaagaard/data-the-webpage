@@ -40,7 +40,7 @@ $ ->
         ]
       else if line is "reset"
         console_el.reset()
-      else if line is "togglemenu"
+      else if line is "toggle-menu"
         $('nav').toggleClass("hidden")
         if $('nav').hasClass("hidden")
           message = "Menu turned off. Good for you!"
@@ -73,3 +73,13 @@ $ ->
   for el in $("article section")
     if not $(el).hasClass("command-only")
       $('nav ul ').append("<li>" + $(el).attr('cmd') + "</li>")
+      
+  $('nav ul li').click ->
+    cmd = $(this).text()
+    console_el.disableInput()
+    console_el.moveToEnd()
+    while console_el.promptText().length != 0
+      console_el.backDelete()
+    for c in cmd.split("")
+      console_el.typer.consoleInsert(c)
+    console_el.commandTrigger() # Automatically enables input.

@@ -171,6 +171,13 @@
             extern.inner = inner;
             extern.typer = typer;
             extern.scrollToBottom = scrollToBottom;
+            extern.commandTrigger = commandTrigger
+            extern.disableInput = disableInput
+            extern.enableInput = enableInput
+            extern.moveToEnd = moveToEnd
+            extern.backDelete = backDelete
+            extern.promptText = promptText
+            
         })();
 
         ////////////////////////////////////////////////////////////////////////
