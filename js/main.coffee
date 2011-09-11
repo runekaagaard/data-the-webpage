@@ -41,8 +41,8 @@ $ ->
       else if line is "reset"
         console_el.reset()
       else if line is "toggle-menu"
-        $('nav').toggleClass("hidden")
-        if $('nav').hasClass("hidden")
+        nav.toggleClass("hidden")
+        if nav.hasClass("hidden")
           message = "Menu turned off. Good for you!"
           $('html').css('padding-top', 0)
         else
@@ -70,16 +70,41 @@ $ ->
     $('#console div.jquery-console-focus span.jquery-console-cursor').toggleClass("blink")
   setInterval(blink_cursor, 1000)
   
-  for el in $("article section")
+  for el in $ "article section"
     if not $(el).hasClass("command-only")
       $('nav ul ').append("<li>" + $(el).attr('cmd') + "</li>")
-      
+  
+  nav = $ $ 'nav'
   $('nav ul li').click ->
+    backspace = ->
+      console_el.backDelete()
+      nav.dequeue("key")
+      
     cmd = $(this).text()
     console_el.disableInput()
     console_el.moveToEnd()
-    while console_el.promptText().length != 0
-      console_el.backDelete()
+    
+    for i in [0..console_el.promptText().length]
+      nav.delay(Math.random()*100 + 20, "key")
+      nav.queue("key", backspace)
+    
     for c in cmd.split("")
-      console_el.typer.consoleInsert(c)
-    console_el.commandTrigger() # Automatically enables input.
+      do (c) ->
+        console.log c
+        nav.delay(Math.random()*100 + 20, "key")
+        nav.queue "key", =>
+          console_el.typer.consoleInsert(c)
+          nav.dequeue("key")
+    
+    nav.delay(Math.random()*100 + 20, "key")
+    
+    nav.queue "key", =>
+          console_el.commandTrigger() # Automatically enables input.
+          nav.dequeue("key")
+    
+    nav.dequeue("key")
+    null
+  
+  null
+    
+    
