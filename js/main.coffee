@@ -90,7 +90,6 @@ $ ->
     
     for c in cmd.split("")
       do (c) ->
-        console.log c
         nav.delay(Math.random()*100 + 20, "key")
         nav.queue "key", =>
           console_el.typer.consoleInsert(c)

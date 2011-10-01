@@ -107,7 +107,6 @@
       }
       _ref3 = cmd.split("");
       _fn = function(c) {
-        console.log(c);
         nav.delay(Math.random() * 100 + 20, "key");
         return nav.queue("key", __bind(function() {
           console_el.typer.consoleInsert(c);
